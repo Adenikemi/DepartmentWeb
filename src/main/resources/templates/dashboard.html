@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0"
+          charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            font-family: Arial;
+            font-size: 30px;
+            background-color: #95ADBE;
+            height: 50vh;
+            overflow: hidden;
+            box-sizing: border-box;
+            list-style-type: none;
+        }
+        nav{
+            background: #FBFFFE;
+            height: 100px;
+            width: 100%;
+        }
+        .logo{
+            color: #adadad;
+            font-size: 75px;
+            line-height: 80px;
+            padding: 0px 100px;
+            font-weight: bold;
+        }
+        .center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            background: white;
+            border-radius: 10px;
+            resize: both;
+            color: white;
+        }
+        nav ul{
+            float: right;
+            display: inline;
+        }
+        li{
+            display: inline;
+            padding: 5px;
+            margin: 5px;
+        }
+        #menu:hover{
+            background: none;
+            color:#E8E8E8;
+        }
+        #menu1:hover{
+            background: none;
+            color:#E8E8E8;
+        }
+        #menu2:hover{
+            background: none;
+            color:#E8E8E8;
+        }
+        #menu3:hover{
+            background: none;
+            color:#E8E8E8;
+        }
+        .center a{
+            list-style-type: none;
+            text-align: center;
+            color: #9DA8A7;
+            text-decoration-line: none;
+        }
+        .center h1{
+            color:#adadad;
+            text-align:center;
+            font-size:50px
+        }
+       /* h1{
+            border-bottom: 2px solid #adadad;
+        }*/
+        .dot{
+            height:100px;
+            width:100px;
+            background-color: white;
+            border-radius: 50%;
+            float: right;
+        }
+        .dot1{
+            height:300px;
+            width:300px;
+            background-color: white;
+            border-radius: 50%;
+            float: right;
+            margin-top: 500px;
+        }
+        .dot2{
+            height:300px;
+            width:300px;
+            background-color: white;
+            border-radius: 50%;
+            float: left;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <label class="logo">Dashboard</label>
+           <ul style="list-style-type: none">
+               <li th:text="${student.firstName}">
+               <li th:text="${student.lastName}"></li>
+           </ul>
+    </nav>
+    <span class="dot"></span>
+    <br><br><br>
+    <span class="dot1"></span>
+    <br><br><br>
+    <span class="dot2"></span>
+
+    <div class="center">
+            <h1>MENU</h1>
+            <a id="menu" href="/"><p>Home</p></a>
+            <h1></h1>
+            <a id="menu1" th:href="@{/clubs(studentMail=${email})}"><p>Departmental Clubs</p></a>
+            <h1></h1>
+        <a id="menu2" href="/courseDues"><p>Course Dues</p></a>
+            <h1></h1>
+        <a id="menu3" href="/aboutUs"><p>About Us</p></a>
+            <br>
+    </div>
+
+
+</body>
+</html>

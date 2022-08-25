@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            font-family: Arial;
+            font-size: 25px;
+            background-color: #95ADBE;
+            height: 50vh;
+            overflow: hidden;
+            box-sizing: border-box;
+            list-style-type: none;
+        }
+        .center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            background: white;
+            border-radius: 10px;
+            resize: both;
+            overflow: auto;
+        }
+        .center form{
+            padding: 0 40px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+        .center h1{
+            text-align: center;
+            padding: 0 0 20px 0;
+            border-bottom: 4px solid #95ADBE;
+            color: #95ADBE;
+        }
+        form .field{
+            position: relative;
+            margin: 30px 0;
+        }
+        .field input{
+            width: 100%;
+            padding: 0 5px;
+            height: 40px;
+            font-size: 16px;
+            border: none;
+            background: none;
+            outline: none;
+        }
+        .field label{
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            /*color: #CDB4DB;*/
+            transform: translate(-50%);
+            font-size: 20px;
+            pointer-events: none;
+        }
+        .field span::before{
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #9DA8A7;
+            transition: .5s;
+        }
+        .field input:focus ~ label,
+        .field input:valid ~ label{
+            top: -5px;
+            color: #95ADBE;
+        }
+        #button{
+            font-size: 25px;
+            border: none;
+            background: #95ADBE;
+            color: white;
+            padding: 20px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 120px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.5s;
+        }
+        #button span{
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        #button span:after{
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        #button:hover span {
+            padding-right: 25px;
+        }
+        #button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        #login{
+            font-size: 25px;
+            margin-left: 30px;
+        }
+        a{
+            color: #95ADBE;
+        }
+        a:hover{
+            color: gray;
+        }
+        .dot{
+            height:100px;
+            width:100px;
+            background-color: white;
+            border-radius: 50%;
+            float: right;
+        }
+        .dot1{
+            height:300px;
+            width:300px;
+            background-color: white;
+            border-radius: 50%;
+            float: right;
+            margin-top: 500px;
+        }
+        .dot2{
+            height:300px;
+            width:300px;
+            background-color: white;
+            border-radius: 50%;
+            float: left;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <span class="dot"></span>
+    <br><br><br>
+    <span class="dot1"></span>
+    <br><br><br>
+    <span class="dot2"></span>
+<div class="center">
+    <h1>Create Account</h1>
+    <form action="registerStudent"  method="post">
+        <div class="field">
+            <input type="text"  th:name="firstName"th:required="true"/>
+            <span></span>
+            <label style="margin-left: 30px">First Name: </label>
+        </div>
+        <div class="field">
+            <input type="text" th:name="middleName" th:required="true"/>
+            <span></span>
+            <label style="margin-left: 40px">Middle Name: </label>
+        </div>
+        <div class="field">
+            <input type="text" th:name="lastName" th:required="true"/>
+            <span></span>
+            <label style="margin-left: 30px">Last Name: </label>
+        </div>
+        <div class="field">
+            <input type="text" th:name="registrationNumber" th:required="true"/>
+            <span></span>
+            <label style="margin-left: 70px">Registration Number: </label>
+        </div>
+        <div class="field">
+            <input type="text" th:name="age" th:required="true"/>
+            <span></span>
+            <label>Age: </label>
+        </div>
+        <div class="field">
+            <input type="date" th:name="birthDate" th:required="true"/>
+            <span></span>
+            <label>DOB: </label>
+        </div>
+        <div class="field">
+            <input type="email" th:name="email" th:required="true"/>
+            <span></span>
+            <label style="margin-left: 5px">Email: </label>
+        </div>
+        <div class="field">
+            <input type="password" th:name="password" th:required="true"/>
+            <span></span>
+            <label style="margin-left: 25px">Password: </label>
+        </div>
+        <button type="submit" id="button"><span>Submit</span></button>
+        <br>
+        <label id="login">Do you have an account?</label><a href="/showLogin">Login</a>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Dues</title>
+    <style>
+        nav{
+            background: #FBFFFE;
+            height: 100px;
+            width: 100%;
+        }
+        nav ul{
+            float: right;
+            display: inline;
+        }
+        li{
+            display: inline;
+            padding: 5px;
+            margin: 5px;
+        }
+        .logo{
+            color: #adadad;
+            font-size: 75px;
+            line-height: 80px;
+            padding: 0px 100px;
+            font-weight: bold;
+        }
+        a{
+            list-style-type: none;
+            text-align: center;
+            color: #9DA8A7;
+            text-decoration-line: none;
+        }
+        a:hover{
+            color:#95ADBE;
+        }
+        body{
+            margin:0;
+            padding:0;
+            font-family: Arial;
+            font-size: 30px;
+            background-color: #95ADBE;
+            height: 50vh;
+            overflow: hidden;
+            box-sizing: border-box;
+            list-style-type: none;
+        }
+        .center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: white;
+            border-radius: 10px;
+            resize: both;
+            overflow: auto;
+        }
+        .center form{
+            padding: 0 40px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+        .center h1{
+            text-align: center;
+            padding: 0 0 20px 0;
+            border-bottom: 1px solid #95ADBE;
+            color: #95ADBE;
+        }
+        form .field{
+            position: relative;
+            margin: 30px 0;
+        }
+        .field input{
+            width: 100%;
+            padding: 0 5px;
+            height: 40px;
+            font-size: 16px;
+            border: none;
+            background: none;
+            outline: none;
+        }
+        .field label{
+            margin-left: 20px;
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            color: #95ADBE;
+            transform: translate(-50%);
+            font-size: 15px;
+            pointer-events: none;
+            font-size: large;
+        }
+        .field span::before{
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #95ADBE;
+            transition: .5s;
+        }
+        .field input:focus ~ label,
+        .field input:valid ~ label{
+            top: -5px;
+            color: #95ADBE;
+        }
+        .field2 label{
+            color: #95ADBE;
+            font-size: large;
+        }
+        #button{
+            font-size: 25px;
+            border: none;
+            background: #95ADBE;
+            color: white;
+            padding: 20px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 80px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.5s;
+        }
+        #button span{
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        #button span:after{
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        #button:hover span {
+            padding-right: 25px;
+        }
+        #button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        .dot{
+            height:100px;
+            width:100px;
+            background-color: #95ADBE;
+            border-radius: 50%;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <label class="logo">Course Dues</label>
+    <ul style="list-style-type: none">
+        <li><a href="/">Home</a></li>
+        <li><a href=/dashboard">Dashboard</a></li>
+    </ul>
+</nav>
+<div class="center">
+    <h1>Course Dues</h1>
+    <form>
+
+        <div class="field">
+            <input type="email"  th:name="email"th:required="true"/>
+            <span></span>
+            <label>Email: </label>
+        </div>
+        <div class="field">
+            <input type="text" th:name="Password" th:required="true"/>
+            <span></span>
+            <label>Level: </label>
+        </div>
+        <div class="field2">
+            <label>Have you paid your course dues: </label><br><br>
+            <input type="radio" id="yes" value="Yes" name="radbtn"/>
+            <label for="yes">Yes</label><br><br>
+            <input type="radio" id="no"  value="No" name="radbtn"/>
+            <label for="no">No</label>
+        </div>
+            <br>
+            <button type="submit" id="button"><span>Submit</span></button>
+    </form>
+</div>
+</body>
+</html>
